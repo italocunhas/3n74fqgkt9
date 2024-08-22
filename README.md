@@ -1,1 +1,1 @@
-software feito em python + mysql + qt5
+software feito com python, mysql e Qt5.

@@ -35,10 +35,25 @@ def analise():
     
     if renda>=3500 and idade >=21:
         cadastros.lblAnalise.setText('Cadastro com chances de crédito')
+    else:
+        cadastros.lblAnalise.setText('Cadastro não selecionado para crédito')
+
+def relatorio():
+    relatorio.show() 
+    
+    cursor = conexao.cursor()
+    comando_SQL = 'select * from clientes'
+    cursor.execute(comando_SQL)
     
 app=QtWidgets.QApplication([])
 cadastros=uic.loadUi('cadastros.ui')
 cadastros.btnSalvar.clicked.connect(inserir_dados)
+cadastros.btnAnalise.clicked.connect(analise)
+cadastros.btnRelatorio.clicked.connect(relatorio)
+
+relatorio=uic.loadUi('relatorio.ui')
+
+    
 
 cadastros.show()
 app.exec()
